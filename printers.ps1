@@ -13,7 +13,7 @@ function Show_Menu {
 
 # Función para mostrar impresoras instaladas
 function show_printers {
-    Write-Host "$(Get-Printer)" -ForegroundColor Yellow
+    Get-Printer
 }
 
 # Función para listar archivos
