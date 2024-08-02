@@ -24,8 +24,9 @@ function Instalar_Impresoras {
 
 # Función para mostrar IP local
 function Desinstalar_Impresoras {
-    $ip = (Get-NetIPAddress -AddressFamily IPv4 | Where-Object { $_.Address -ne '127.0.0.1' }).IPAddress
-    Write-Host "Dirección IP local: $ip" -ForegroundColor Yellow
+    $opcionD = Read-Host "Indique cual impresora desea desinstalar:"
+    
+    Remove-Printer -Name "$opcionD"
 }
 
 # Función principal para manejar la selección del menú
