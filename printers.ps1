@@ -31,7 +31,7 @@ function Desinstalar_Impresoras {
 # Función principal para manejar la selección del menú
 function Ejecutar_Menu {
     do {
-        Show-Menu
+        Show_Menu
         $opcion = Read-Host "Seleccione una opción (1-4)"
         
         switch ($opcion) {
@@ -48,4 +48,4 @@ function Ejecutar_Menu {
 }
 
 # Ejecutar el menú
-Show-Menu
+Show_Menu
