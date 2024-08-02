@@ -13,7 +13,7 @@ function Show_Menu {
 
 # Función para mostrar impresoras instaladas
 function show_printers {
-    Get-Printer
+    Get-Printer | Format-Table -AutoSize
 }
 
 # Función para listar archivos
