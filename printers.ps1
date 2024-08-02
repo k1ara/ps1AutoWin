@@ -27,10 +27,12 @@ function show_printers {
 
 # Función para listar archivos
 function Instalar_Impresoras {
+    Show_Menu2
+    Run_Menu2
 # Función principal para manejar la selección del menú
 function Run_Menu2 {
     do {
-        Show_Menu2
+        
         $opcionM2 = Read-Host "Seleccione una opción (1-3)"
         
         switch ($opcionM2) {
