@@ -1,7 +1,7 @@
 @echo off
 setlocal
 
-:: Configuración del servidor SQL Server
+:: Configuración del servidor SQL Server SVBI
 set "server=localhost"
 set "username=sa"
 set "database=CFE10002"
