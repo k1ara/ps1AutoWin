@@ -11,14 +11,6 @@ function Show_Menu {
     Write-Host "====================================" -ForegroundColor Cyan
 }
 
-# Definir el menú para instalar impresora
-function Show_Menu2 {
-    Clear-Host
-    Write-Host "1. Opción 1: Canon_MESADC1" -ForegroundColor Green
-    Write-Host "2. Opción 2: Canon_COLOR" -ForegroundColor Green
-    Write-Host "3. Opción 3: Canon_1730" -ForegroundColor Green
-    Write-Host "4. Salir" -ForegroundColor Red
-}
 
 # Función para mostrar impresoras instaladas
 function show_printers {
@@ -27,6 +19,15 @@ function show_printers {
 
 # Función para listar archivos
 function Instalar_Impresoras {
+    # Definir el menú para instalar impresora
+function Show_Menu2 {
+    Clear-Host
+    Write-Host "1. Opción 1: Canon_MESADC1" -ForegroundColor Green
+    Write-Host "2. Opción 2: Canon_COLOR" -ForegroundColor Green
+    Write-Host "3. Opción 3: Canon_1730" -ForegroundColor Green
+    Write-Host "4. Salir" -ForegroundColor Red
+}
+
     Show_Menu2
     Run_Menu2
 # Función principal para manejar la selección del menú
