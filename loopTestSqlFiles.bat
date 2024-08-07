@@ -1,5 +1,3 @@
-@echo off
-
 set "server=localhost"
 
 :: Recorrer todos los archivos .bak en el directorio de scripts
