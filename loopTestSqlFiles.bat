@@ -1,9 +1,9 @@
 @echo off
 
-:: Recorrer todos los archivos .sql en el directorio de scripts
-FOR %%I IN (*.BAK) DO (sqlcmd -E -S %server% -Q "RESTORE VERIFYONLY FROM DISK = '"C:\Backup\Test"\%%I.BAK' WITH CHECKSUM")
+set "server=localhost"
 
-
-echo Ejecución de scripts completada.
-endlocal
+:: Recorrer todos los archivos .bak en el directorio de scripts
+FOR %%I IN (*.BAK) DO (
+    sqlcmd -E -S %server% -Q "RESTORE VERIFYONLY FROM DISK = 'C:\Test\%%I' WITH CHECKSUM"
+)
 pause
