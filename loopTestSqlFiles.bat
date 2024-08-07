@@ -15,15 +15,8 @@ set /p "password=Introduce la contraseña: " <nul
 if not exist "%output_dir%" mkdir "%output_dir%"
 
 :: Recorrer todos los archivos .sql en el directorio de scripts
-for %%I in ("%scripts_dir%\*.BAK") do (
-    "
-    FOR %%I IN (*.BAK) DO (sqlcmd -E -S %server% -Q "RESTORE VERIFYONLY FROM DISK = '"C:\Backup\Test"\%%I.BAK' WITH CHECKSUM" -o "%output_dir%\%%~nf_output.txt")
-    if errorlevel 1 (
-        echo Error al ejecutar %%I
-    ) else (
-        echo %%I ejecutado correctamente
-    )
-)
+FOR %%I IN (*.BAK) DO (sqlcmd -E -S %server% -Q "RESTORE VERIFYONLY FROM DISK = '"C:\Backup\Test"\%%I.BAK' WITH CHECKSUM" -o "%output_dir%\%%~nf_output.txt")
+
 
 echo Ejecución de scripts completada.
 endlocal
