@@ -1,7 +1,17 @@
 Import-Module ActiveDirectory
 
-Get-ADComputer -Filter * -Property Name, LastLogonTimestamp |
-Where-Object {
-    $_.LastLogonTimestamp -lt (Get-Date).AddDays(-90)
-} | 
-Select-Object Name, @{Name="LastLogonDate";Expression={[DateTime]::FromFileTime($_.LastLogonTimestamp)}}
+Get-ADComputer -Filter * -Property Name, LastLogonTimestamp | ForEach-Object {
+    $lastLogonDate = if ($_.LastLogonTimestamp) {
+        [DateTime]::FromFileTime($_.LastLogonTimestamp)
+    } else {
+        $null
+    }
+
+    if ($lastLogonDate -lt (Get-Date).AddDays(-90)) {
+        [PSCustomObject]@{
+            Name           = $_.Name
+            LastLogonDate  = $lastLogonDate
+        }
+    }
+} | Export-Csv -Path "EquiposInactivos.csv" -NoTypeInformation
+
