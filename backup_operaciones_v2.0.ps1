@@ -1,4 +1,4 @@
-# [Script para hacer backups de Contabilidad]
+# [Script para hacer backups de Operaciones]
 
 # Cambiar los colores de la consola
 $Host.UI.RawUI.BackgroundColor = 'gray'
