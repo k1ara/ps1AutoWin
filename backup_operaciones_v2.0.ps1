@@ -60,7 +60,7 @@ function Get-Backup {
 
     # Crear el backup
     Write-Host "Espere mientras se está procesando el backup..." -ForegroundColor Green
-    #Invoke-Expression "sqlcmd -E -S 192.168.10.2 -Q `"BACKUP DATABASE CFE10002 TO DISK = '$path' WITH CHECKSUM`""
+    Invoke-Expression "sqlcmd -E -S 192.168.10.2 -Q `"BACKUP DATABASE CFE10002 TO DISK = '$path' WITH CHECKSUM`""
     Write-Host
     Write-Host "********************************************"
     Write-Host "* El script ha finalizado."
