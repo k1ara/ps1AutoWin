@@ -47,13 +47,14 @@ function Get-Backup {
         }
     }
     # Ruta inicial del archivo de backup
-    $path = "C:\BACKUP\$folder\CFE10002_${suffix}_$date.BAK"
-    $pathRed = "\\192.168.10.2\$folder\CFE10002_${suffix}_$date.BAK"
+    $path = "C:\$folder\CFE10002_${suffix}_$date.BAK"
+    $pathRed = "\\svbi\$folder\CFE10002_${suffix}_$date.BAK"
 
     # Restaurar backup
     Write-Host "Espere mientras se está procesando la restauracion..." -ForegroundColor Green    
-    $sql = "RESTORE DATABASE CFE10002 FROM DISK = N'$path' WITH REPLACE, CHECKSUM"
-    sqlcmd -E -S 192.168.10.2 -Q "$sql"
+    #Invoke-Expression "sqlcmd -E -S 192.168.10.5 -Q "RESTORE DATABASE CFE10007 FROM DISK = '$path' WITH REPLACE, CHECKSUM""
+    $sql = "RESTORE DATABASE CFE10008 FROM DISK = N'$path' WITH REPLACE, CHECKSUM"
+    sqlcmd -E -S 192.168.10.5 -Q "$sql"
     Write-Host
     Write-Host "********************************************"
     Write-Host "* El script ha finalizado."
@@ -66,11 +67,11 @@ Show-Menu
     $choice = Read-Host
 
     switch ($choice) {
-        1 { Get-Backup -folder 'BACKUP_ANTES_CIERRE' -suffix 'ANTES_CIERRE' }
-        2 { Get-Backup -folder 'BACKUP_DESPUES_CIERRE' -suffix 'DESPUES_CIERRE' }
-        3 { Get-Backup -folder 'BACKUP_DESPUES_APLICACION_ABONOS' -suffix 'DESPUES_ABONO' }
-        4 { Get-Backup -folder 'BACKUP_INTERMEDIO' -suffix 'INTERMEDIO' }
-        5 { Get-Backup -folder 'BACKUP_FIN_MES' -suffix 'FIN_MES' }
+        1 { Get-Backup -folder 'TEST' -suffix 'ANTES_CIERRE' }
+        2 { Get-Backup -folder 'TEST' -suffix 'DESPUES_CIERRE' }
+        3 { Get-Backup -folder 'TEST' -suffix 'DESPUES_ABONO' }
+        4 { Get-Backup -folder 'TEST' -suffix 'INTERMEDIO' }
+        5 { Get-Backup -folder 'TEST' -suffix 'FIN_MES' }
         default {
             Write-Host ""
             Write-Host ">>> Opción inválida. Presione cualquier tecla para intentarlo de nuevo..." -ForegroundColor Red
