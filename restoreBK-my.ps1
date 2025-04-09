@@ -48,7 +48,7 @@ function Get-Backup {
     }
     # Ruta inicial del archivo de backup
     $path = "C:\BACKUP\$folder\CFE10002_${suffix}_$date.BAK"
-    $pathRed = "\\192.168.10.2\$folder\CFE10002_${suffix}_$date.BAK"
+    #$pathRed = "\\192.168.10.2\$folder\CFE10002_${suffix}_$date.BAK"
 
     # Restaurar backup
     Write-Host "Espere mientras se está procesando la restauracion..." -ForegroundColor Green    
